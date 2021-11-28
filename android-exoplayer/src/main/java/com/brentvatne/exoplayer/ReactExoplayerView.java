@@ -1,4 +1,4 @@
-package com.brentvatne.exoplayer;
+package com.brentvatne.exoplayer; //mizan
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -70,6 +70,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
+import com.google.android.exoplayer2.upstream.cache.SimpleCache;
 import com.google.android.exoplayer2.util.Util;
 
 import java.net.CookieHandler;
@@ -93,6 +94,7 @@ class ReactExoplayerView extends FrameLayout implements
     private static final String TAG = "ReactExoplayerView";
 
     private static final CookieManager DEFAULT_COOKIE_MANAGER;
+    private SimpleCache cache;
     private static final int SHOW_PROGRESS = 1;
 
     static {
@@ -523,8 +525,14 @@ class ReactExoplayerView extends FrameLayout implements
                         config.buildLoadErrorHandlingPolicy(minLoadRetryCount)
                 ).createMediaSource(uri);
             case C.TYPE_OTHER:
+                // return new ProgressiveMediaSource.Factory(
+                //         mediaDataSourceFactory
+                // ).setDrmSessionManager(drmSessionManager)
+                //  .setLoadErrorHandlingPolicy(
+                //         config.buildLoadErrorHandlingPolicy(minLoadRetryCount)
+                // ).createMediaSource(uri);                
                 return new ProgressiveMediaSource.Factory(
-                        mediaDataSourceFactory
+                    new AndroidCacheDataSourceFactory(themedReactContext, 300 * 1024 * 1024, 5 * 1024 * 1024)
                 ).setDrmSessionManager(drmSessionManager)
                  .setLoadErrorHandlingPolicy(
                         config.buildLoadErrorHandlingPolicy(minLoadRetryCount)
@@ -565,6 +573,15 @@ class ReactExoplayerView extends FrameLayout implements
     private void releasePlayer() {
         if (player != null) {
             updateResumePosition();
+            if(cache != null) {
+                try {
+                    cache.release();
+                    cache = null;
+                } catch(Exception ex) {
+                    // Couldn't write the cache
+                    // We'll just ignore it for now
+                }
+            }
             player.release();
             player.removeMetadataOutput(this);
             trackSelector = null;
