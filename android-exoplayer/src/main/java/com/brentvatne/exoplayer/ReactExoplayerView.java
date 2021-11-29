@@ -1,4 +1,4 @@
-package com.brentvatne.exoplayer; //mizan
+package com.brentvatne.exoplayer;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -524,13 +524,7 @@ class ReactExoplayerView extends FrameLayout implements
                  .setLoadErrorHandlingPolicy(
                         config.buildLoadErrorHandlingPolicy(minLoadRetryCount)
                 ).createMediaSource(uri);
-            case C.TYPE_OTHER:
-                // return new ProgressiveMediaSource.Factory(
-                //         mediaDataSourceFactory
-                // ).setDrmSessionManager(drmSessionManager)
-                //  .setLoadErrorHandlingPolicy(
-                //         config.buildLoadErrorHandlingPolicy(minLoadRetryCount)
-                // ).createMediaSource(uri);                
+            case C.TYPE_OTHER:              
                 return new ProgressiveMediaSource.Factory(
                     new AndroidCacheDataSourceFactory(themedReactContext, 300 * 1024 * 1024, 5 * 1024 * 1024)
                 ).setDrmSessionManager(drmSessionManager)
