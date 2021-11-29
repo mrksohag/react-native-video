@@ -5,7 +5,7 @@ import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 import TextTrackType from './TextTrackType';
 import FilterType from './FilterType';
 import DRMType from './DRMType';
-import AndroidFilterType from './AndroidFilterType'
+import FilterTypeAndroid from './FilterTypeAndroid'
 import VideoResizeMode from './VideoResizeMode.js';
 
 const styles = StyleSheet.create({
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export { TextTrackType, FilterType, DRMType, AndroidFilterType };
+export { TextTrackType, FilterType, DRMType, FilterTypeAndroid };
 
 export default class Video extends Component {
 
@@ -378,20 +378,20 @@ Video.propTypes = {
     FilterType.TONAL,
     FilterType.TRANSFER,
     FilterType.SEPIA,
-    AndroidFilterType.NONE,
-    AndroidFilterType.GRAY_SCALE,
-    AndroidFilterType.SEPIA,
-    AndroidFilterType.INVERT,
-    AndroidFilterType.HAZE,
-    AndroidFilterType.MONOCHROME,
-    AndroidFilterType.BILATERAL_BLUR,
-    AndroidFilterType.SPHERE_REFRACTION,
-    AndroidFilterType.VIGNETTE,
-    AndroidFilterType.FILTER_GROUP_SAMPLE,
-    AndroidFilterType.GAUSSIAN_FILTER,
-    AndroidFilterType.BULGE_DISTORTION,
-    AndroidFilterType.CGA_COLORSPACE,
-    AndroidFilterType.BOX_BLUR,
+    FilterTypeAndroid.NONE,
+    FilterTypeAndroid.GRAY_SCALE,
+    FilterTypeAndroid.SEPIA,
+    FilterTypeAndroid.INVERT,
+    FilterTypeAndroid.HAZE,
+    FilterTypeAndroid.MONOCHROME,
+    FilterTypeAndroid.BILATERAL_BLUR,
+    FilterTypeAndroid.SPHERE_REFRACTION,
+    FilterTypeAndroid.VIGNETTE,
+    FilterTypeAndroid.FILTER_GROUP_SAMPLE,
+    FilterTypeAndroid.GAUSSIAN_FILTER,
+    FilterTypeAndroid.BULGE_DISTORTION,
+    FilterTypeAndroid.CGA_COLORSPACE,
+    FilterTypeAndroid.BOX_BLUR,
   ]),
   filterEnabled: PropTypes.bool,
   /* Native only */
