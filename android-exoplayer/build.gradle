@@ -28,8 +28,8 @@ android {
 
 dependencies {
     implementation "com.facebook.react:react-native:${safeExtGet('reactNativeVersion', '+')}"
-    implementation 'com.daasuu:ExoPlayerFilter:0.2.3'
-    // implementation 'com.github.MasayukiSuda:ExoPlayerFilter:v0.2.6'
+    // implementation 'com.daasuu:ExoPlayerFilter:0.2.3'
+    implementation 'com.github.MasayukiSuda:ExoPlayerFilter:v0.2.6'
     implementation 'com.github.MasayukiSuda:Mp4Composer-android:v0.2.0'
     implementation('com.google.android.exoplayer:exoplayer:2.13.2') {
         exclude group: 'com.android.support'

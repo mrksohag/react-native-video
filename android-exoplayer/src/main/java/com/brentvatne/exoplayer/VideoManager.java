@@ -39,12 +39,12 @@ public class VideoManager extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void save(String filterText, String inputUrl, String outputUrl,  Promise promise) {
-        FilterTypeMP4 filterType = FilterTypeMP4.valueOf(filterText);
+        FilterType filterType = FilterType.valueOf(filterText);
         WritableMap map = Arguments.createMap();
 
         mp4Composer = new Mp4Composer(inputUrl, outputUrl)
                 .fillMode(FillMode.PRESERVE_ASPECT_FIT)
-                .filter(FilterTypeMP4.createGlFilter(filterType))
+                .filter(FilterType.createGlFilter(filterType))
                 .listener(new Mp4Composer.Listener() {
                     @Override
                     public void onProgress(double progress) {
@@ -53,20 +53,18 @@ public class VideoManager extends ReactContextBaseJavaModule {
 
                     @Override
                     public void onCompleted() {
-                        Log.d("completed", "completed");
                         map.putString("uri", outputUrl);
                         promise.resolve(map);
                     }
 
                     @Override
                     public void onCanceled() {
-
+                        promise.reject("onCanceled", "Cancelled compose");
                     }
 
                     @Override
                     public void onFailed(Exception exception) {
-                        promise.resolve(exception.getMessage());
-                        Log.d("failed", "onFailed()");
+                        promise.reject("onFailed", exception.getMessage());
                     }
                 })
                 .start();
