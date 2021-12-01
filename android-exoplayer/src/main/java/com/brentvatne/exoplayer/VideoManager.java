@@ -39,12 +39,12 @@ public class VideoManager extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void save(String filterText, String inputUrl, String outputUrl,  Promise promise) {
-        FilterType filterType = FilterType.valueOf(filterText);
+        FilterTypeMP4 filterType = FilterTypeMP4.valueOf(filterText);
         WritableMap map = Arguments.createMap();
 
         mp4Composer = new Mp4Composer(inputUrl, outputUrl)
                 .fillMode(FillMode.PRESERVE_ASPECT_FIT)
-                .filter(FilterType.createGlFilter(filterType))
+                .filter(FilterTypeMP4.createGlFilter(filterType))
                 .listener(new Mp4Composer.Listener() {
                     @Override
                     public void onProgress(double progress) {
