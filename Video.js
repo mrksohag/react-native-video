@@ -393,7 +393,6 @@ Video.propTypes = {
     FilterTypeAndroid.CGA_COLORSPACE,
     FilterTypeAndroid.BOX_BLUR,
     FilterTypeAndroid.POSTERIZE,
-    FilterTypeAndroid.MONO,
     FilterTypeAndroid.TONE,
   ]),
   filterEnabled: PropTypes.bool,
