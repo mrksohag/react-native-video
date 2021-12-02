@@ -22,6 +22,9 @@ import com.daasuu.epf.filter.GlSharpenFilter;
 import com.daasuu.epf.filter.GlSphereRefractionFilter;
 import com.daasuu.epf.filter.GlToneCurveFilter;
 import com.daasuu.epf.filter.GlVignetteFilter;
+import com.daasuu.epf.filter.GlPosterizeFilter;
+import com.daasuu.epf.filter.GlMonochromeFilter;
+import com.daasuu.epf.filter.GlToneFilter;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,7 +46,10 @@ public enum FilterType {
     SHARP,
     VIGNETTE,
     FILTER_GROUP_SAMPLE,
-    SPHERE_REFRACTION;
+    SPHERE_REFRACTION,
+    POSTERIZE,
+    MONO
+    TONE;
 
     public static GlFilter createGlFilter(FilterType filterType) {
         switch (filterType) {
@@ -79,6 +85,12 @@ public enum FilterType {
                 GlSharpenFilter glSharpenFilter = new GlSharpenFilter();
                 glSharpenFilter.setSharpness(4f);
                 return glSharpenFilter;
+            case POSTERIZE:
+                return new GlPosterizeFilter();
+            case MONO:
+                return new GlMonochromeFilter();
+            case TONE:
+                return new GlToneFilter();
             default:
                 return new GlFilter();
         }

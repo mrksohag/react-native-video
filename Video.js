@@ -392,6 +392,9 @@ Video.propTypes = {
     FilterTypeAndroid.BULGE_DISTORTION,
     FilterTypeAndroid.CGA_COLORSPACE,
     FilterTypeAndroid.BOX_BLUR,
+    FilterTypeAndroid.POSTERIZE,
+    FilterTypeAndroid.MONO,
+    FilterTypeAndroid.TONE,
   ]),
   filterEnabled: PropTypes.bool,
   /* Native only */

@@ -15,6 +15,9 @@ import com.daasuu.mp4compose.filter.GlSepiaFilter;
 import com.daasuu.mp4compose.filter.GlSharpenFilter;
 import com.daasuu.mp4compose.filter.GlSphereRefractionFilter;
 import com.daasuu.mp4compose.filter.GlVignetteFilter;
+import com.daasuu.mp4compose.filter.GlPosterizeFilter;
+import com.daasuu.mp4compose.filter.GlMonochromeFilter;
+import com.daasuu.mp4compose.filter.GlToneFilter;
 
 public enum FilterTypeMP4 {
     DEFAULT,
@@ -31,8 +34,10 @@ public enum FilterTypeMP4 {
     SHARP,
     VIGNETTE,
     FILTER_GROUP_SAMPLE,
-    SPHERE_REFRACTION;
-
+    SPHERE_REFRACTION,
+    POSTERIZE,
+    MONO
+    TONE;
     public static GlFilter createGlFilter(FilterTypeMP4 filterType) {
         switch (filterType) {
             case DEFAULT:
@@ -67,6 +72,12 @@ public enum FilterTypeMP4 {
                 GlSharpenFilter glSharpenFilter = new GlSharpenFilter();
                 glSharpenFilter.setSharpness(4f);
                 return glSharpenFilter;
+            case POSTERIZE:
+                return new GlPosterizeFilter();
+            case MONO:
+                return new GlMonochromeFilter();
+            case TONE:
+                return new GlToneFilter();
             default:
                 return new GlFilter();
         }
