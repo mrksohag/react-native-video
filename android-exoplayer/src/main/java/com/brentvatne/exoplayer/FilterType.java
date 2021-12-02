@@ -48,7 +48,7 @@ public enum FilterType {
     FILTER_GROUP_SAMPLE,
     SPHERE_REFRACTION,
     POSTERIZE,
-    MONO
+    MONO,
     TONE;
 
     public static GlFilter createGlFilter(FilterType filterType) {

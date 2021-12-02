@@ -36,7 +36,7 @@ public enum FilterTypeMP4 {
     FILTER_GROUP_SAMPLE,
     SPHERE_REFRACTION,
     POSTERIZE,
-    MONO
+    MONO,
     TONE;
     public static GlFilter createGlFilter(FilterTypeMP4 filterType) {
         switch (filterType) {
