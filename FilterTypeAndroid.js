@@ -15,4 +15,12 @@ export default {
     CGA_COLORSPACE: 'CGA_COLORSPACE',
     POSTERIZE: 'POSTERIZE',
     TONE: 'TONE',
+    LuminanceThreshold: 'LuminanceThreshold', 
+    Pixelation: 'Pixelation', 
+    RGBFilter: 'RGBFilter', 
+    SHARP: 'SHARP', 
+    Solarize: 'Solarize', 
+    Swirl: 'Swirl', 
+    Vibrance: 'Vibrance', 
+    ZoomBlur: 'ZoomBlur', 
 };

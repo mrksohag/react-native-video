@@ -24,6 +24,13 @@ import com.daasuu.epf.filter.GlToneCurveFilter;
 import com.daasuu.epf.filter.GlVignetteFilter;
 import com.daasuu.epf.filter.GlPosterizeFilter;
 import com.daasuu.epf.filter.GlToneFilter;
+import com.daasuu.epf.filter.GlLuminanceThresholdFilter; 
+import com.daasuu.epf.filter.GlPixelationFilter; 
+import com.daasuu.epf.filter.GlRGBFilter; 
+import com.daasuu.epf.filter.GlSolarizeFilter; 
+import com.daasuu.epf.filter.GlSwirlFilter; 
+import com.daasuu.epf.filter.GlVibranceFilter; 
+import com.daasuu.epf.filter.GlZoomBlurFilter; 
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,8 +55,14 @@ public enum FilterType {
     SPHERE_REFRACTION,
     POSTERIZE,
     MONO,
-    TONE;
-
+    TONE,
+    LuminanceThreshold,
+    Pixelation,
+    RGBFilter,
+    Solarize,
+    Swirl,
+    Vibrance,
+    ZoomBlur;
     public static GlFilter createGlFilter(FilterType filterType) {
         switch (filterType) {
             case DEFAULT:
@@ -87,7 +100,21 @@ public enum FilterType {
             case POSTERIZE:
                 return new GlPosterizeFilter();
             case TONE:
-                return new GlToneFilter();
+                return new GlToneFilter(); 
+            case LuminanceThreshold:
+                return new GlLuminanceThresholdFilter();
+            case Pixelation:
+                return new GlPixelationFilter();
+            case RGBFilter:
+                return new GlRGBFilter();
+            case Solarize:
+                return new GlSolarizeFilter();
+            case Swirl:
+                return new GlSwirlFilter();
+            case Vibrance:
+                return new GlVibranceFilter();
+            case ZoomBlur:
+                return new GlZoomBlurFilter();
             default:
                 return new GlFilter();
         }
