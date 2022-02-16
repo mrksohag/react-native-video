@@ -31,7 +31,7 @@ dependencies {
     // implementation 'com.daasuu:ExoPlayerFilter:0.2.3'
     implementation 'com.github.MasayukiSuda:ExoPlayerFilter:v0.2.6'
     implementation 'com.github.MasayukiSuda:Mp4Composer-android:v0.3.9'
-    implementation('com.google.android.exoplayer:exoplayer:2.13.2') {
+    implementation('com.google.android.exoplayer:exoplayer:2.13.3') {
         exclude group: 'com.android.support'
     }
 
@@ -40,7 +40,7 @@ dependencies {
     implementation "androidx.core:core:1.1.0"
     implementation "androidx.media:media:1.1.0"
 
-    implementation('com.google.android.exoplayer:extension-okhttp:2.13.2') {
+    implementation('com.google.android.exoplayer:extension-okhttp:2.13.3') {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
     implementation 'com.squareup.okhttp3:okhttp:${OKHTTP_VERSION}'
